@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tribuna98.pages.dev/sitemap.xml

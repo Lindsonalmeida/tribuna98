@@ -1,1 +1,168 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Tribuna 98</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0b2a8f;color:#ffd400;font:700 22px system-ui}</style></head><body>Tribuna 98 · em breve</body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tribuna 98 · Thiago Azevedo | Política e bastidores do Maranhão</title>
+<meta name="description" content="Tribuna 98 com Thiago Azevedo: notícias, política e bastidores do Maranhão. Todos os canais, últimas matérias, entrevistas e contato para anunciar.">
+<meta name="theme-color" content="#061a5e">
+<link rel="canonical" href="https://tribuna98.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tribuna 98 · Thiago Azevedo">
+<meta property="og:description" content="Informação, política e bastidores do Maranhão. Todos os canais num lugar só.">
+<meta property="og:url" content="https://tribuna98.pages.dev/">
+<meta property="og:image" content="https://tribuna98.pages.dev/img/og.jpg">
+<link rel="icon" href="img/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Template: Exec Bio (Troy Miller, Framer) + números do Glass Link in Bio (Pixfort) + lista de manchetes do PRESSRA. Ver TEMPLATE.md (conta Leandro) -->
+<style>
+:root{--azul:#0b3fd6;--royal:#0a2fa8;--noite:#061a5e;--fundo:#040f3a;--amarelo:#ffd400;--branco:#fff;--cinza:#b9c3e6;--linha:rgba(255,255,255,.12);--cartao:rgba(255,255,255,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--fundo)}
+body{font-family:Inter,system-ui,sans-serif;color:var(--branco);background:var(--fundo);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:480px;margin:0 auto;position:relative}
+/* HERO */
+.hero{position:relative;height:min(128vw,540px);overflow:hidden;background:radial-gradient(120% 80% at 50% 30%,#1652ff 0%,var(--royal) 45%,var(--noite) 100%)}
+.hero .mar{position:absolute;left:-4%;right:-4%;top:9%;font-family:Anton,sans-serif;font-size:min(30vw,146px);line-height:.86;text-align:center;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.22);letter-spacing:-.01em;user-select:none}
+.hero .mar b{display:block;font-size:1.7em;line-height:.8;color:rgba(255,212,0,.95);-webkit-text-stroke:0;font-weight:400}
+.hero img.pessoa{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:86%;width:auto;max-width:none;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:46%;background:linear-gradient(to bottom,rgba(4,15,58,0),var(--fundo) 92%)}
+.topo{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:16px 18px}
+.topo img{height:30px}
+.vivo{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--linha);padding:7px 11px;border-radius:99px}
+.vivo i{width:7px;height:7px;border-radius:50%;background:#ff3b3b;box-shadow:0 0 0 0 rgba(255,59,59,.7);animation:pulsa 1.6s infinite}
+@keyframes pulsa{70%{box-shadow:0 0 0 8px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
+.quem{position:relative;z-index:2;margin-top:-96px;padding:0 20px;text-align:center}
+.quem h1{font-family:Anton,sans-serif;font-weight:400;font-size:46px;line-height:1;letter-spacing:.005em;text-transform:uppercase}
+.quem h1 svg{width:24px;height:24px;vertical-align:4px;margin-left:4px}
+.quem .cargo{margin-top:8px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amarelo);white-space:nowrap}
+.quem p{margin:12px auto 0;max-width:340px;color:var(--cinza);font-size:15px;line-height:1.5}
+/* NÚMEROS */
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 16px 0}
+.num{background:var(--cartao);border:1px solid var(--linha);border-radius:16px;padding:14px 8px 12px;text-align:center;backdrop-filter:blur(12px)}
+.num b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:28px;line-height:1;color:var(--branco)}
+.num b em{font-style:normal;color:var(--amarelo)}
+.num span{display:block;margin-top:6px;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cinza)}
+/* BOTÕES */
+.sec{margin:28px 16px 0}
+.rot{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--cinza);margin-bottom:12px}
+.rot::after{content:"";flex:1;height:1px;background:var(--linha)}
+.principal{display:flex;align-items:center;gap:14px;background:var(--amarelo);color:#061a5e;border-radius:18px;padding:16px 18px;font-weight:800;font-size:16px;box-shadow:0 14px 34px rgba(255,212,0,.22);transition:transform .2s}
+.principal .tx small{display:block;font-weight:600;font-size:12.5px;color:#061a5e;opacity:.72;margin-top:2px}
+.principal .ic{background:#061a5e;color:var(--amarelo)}
+.lista{display:grid;gap:10px}
+.lk{display:flex;align-items:center;gap:14px;background:var(--cartao);border:1px solid var(--linha);border-radius:18px;padding:13px 16px;transition:transform .2s,background .2s}
+.lk:hover,.principal:hover{transform:translateY(-2px)}.lk:hover{background:rgba(255,255,255,.1)}
+.ic{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1)}
+.ic svg{width:21px;height:21px}
+.tx{flex:1;min-width:0}
+.tx b{display:block;font-size:15.5px;font-weight:700}
+.tx small{display:block;color:var(--cinza);font-size:12.5px;margin-top:2px}
+.seta{opacity:.5;font-size:18px}
+/* MANCHETES */
+.news{display:grid;gap:10px}
+.nt{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;background:var(--cartao);border:1px solid var(--linha);border-radius:16px;padding:8px;min-height:88px}
+.nt .th{width:96px;height:72px;border-radius:11px;background:var(--royal) center/cover;position:relative}
+.nt .th::after{content:"98";position:absolute;inset:0;display:grid;place-items:center;font-family:Anton;color:var(--amarelo);font-size:26px;opacity:var(--o,1)}
+.nt .dt{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amarelo)}
+.nt h3{font-size:14px;line-height:1.3;font-weight:700;margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.nt.load h3{height:36px;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,.06),rgba(255,255,255,.14),rgba(255,255,255,.06));background-size:200% 100%;animation:br 1.2s infinite}
+@keyframes br{to{background-position:-200% 0}}
+.mais{display:block;text-align:center;margin-top:12px;font-size:13px;font-weight:700;color:var(--amarelo)}
+/* ANUNCIE */
+.anuncie{position:relative;overflow:hidden;border-radius:22px;padding:24px 20px;background:linear-gradient(140deg,#1652ff,#0a2fa8 60%,#061a5e)}
+.anuncie::before{content:"98";position:absolute;right:-14px;bottom:-46px;font-family:Anton;font-size:170px;color:rgba(255,212,0,.14);line-height:1}
+.anuncie h2{font-family:Anton,sans-serif;font-weight:400;font-size:32px;line-height:1.02;text-transform:uppercase;position:relative}
+.anuncie h2 em{font-style:normal;color:var(--amarelo)}
+.anuncie p{position:relative;margin-top:10px;color:#dfe6ff;font-size:14.5px;line-height:1.5;max-width:300px}
+.anuncie a{position:relative;display:inline-flex;margin-top:16px;background:var(--branco);color:#061a5e;font-weight:800;font-size:14px;padding:12px 18px;border-radius:99px}
+footer{margin:34px 16px 0;padding:20px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--linha);text-align:center;color:var(--cinza);font-size:12px;line-height:1.7}
+footer img{height:26px;margin-bottom:8px;opacity:.9}
+/* entrada */
+.sobe{opacity:0;transform:translateY(16px);animation:sobe .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes sobe{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.sobe{animation:none;opacity:1;transform:none}.vivo i{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="topo"><img src="img/logo.png" alt="Tribuna 98"><span class="vivo"><i></i>Bastidores</span></div>
+    <div class="mar" aria-hidden="true">TRIBUNA<b>98</b></div>
+    <img class="pessoa" src="img/thiago.webp" alt="Thiago Azevedo com o microfone do Tribuna 98" width="1200" height="1142">
+  </header>
+
+  <section class="quem sobe">
+    <h1>Thiago Azevedo<svg viewBox="0 0 24 24" aria-label="verificado"><path fill="#ffd400" d="M12 1l2.6 2 3.3-.3.9 3.2 2.9 1.6-1 3.1 1 3.1-2.9 1.6-.9 3.2-3.3-.3L12 23l-2.6-2-3.3.3-.9-3.2-2.9-1.6 1-3.1-1-3.1 2.9-1.6.9-3.2 3.3.3z"/><path fill="#061a5e" d="M10.4 15.6l-3.2-3.2 1.4-1.4 1.8 1.8 4.9-4.9 1.4 1.4z"/></svg></h1>
+    <div class="cargo">Informação · Política · Bastidores</div>
+    <p>Notícias do Maranhão e do Brasil, com fiscalização das prefeituras e entrevistas com quem decide.</p>
+  </section>
+
+  <div class="nums sobe" style="animation-delay:.08s">
+    <div class="num"><b>71,5<em>mil</em></b><span>Instagram</span></div>
+    <div class="num"><b>42<em>mil</em></b><span>Curtidas TikTok</span></div>
+    <div class="num"><b>30</b><span>Entrevistas</span></div>
+  </div>
+
+  <section class="sec sobe" style="animation-delay:.14s">
+    <a class="principal" href="https://wa.me/5598991056523?text=Ol%C3%A1%2C%20Thiago!%20Vim%20pelo%20Instagram%20do%20Tribuna%2098%20e%20quero%20mandar%20uma%20pauta." target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></span>
+      <span class="tx"><b>Mande sua pauta ou denúncia</b><small>Fale direto com o Thiago no WhatsApp</small></span><span class="seta">→</span>
+    </a>
+  </section>
+
+  <section class="sec sobe" style="animation-delay:.2s">
+    <div class="rot">Últimas do Tribuna</div>
+    <div class="news" id="news">
+      <a class="nt load" href="https://tribuna98.com.br/"><span class="th"></span><span><span class="dt">Carregando</span><h3></h3></span></a>
+      <a class="nt load" href="https://tribuna98.com.br/"><span class="th"></span><span><span class="dt">Carregando</span><h3></h3></span></a>
+      <a class="nt load" href="https://tribuna98.com.br/"><span class="th"></span><span><span class="dt">Carregando</span><h3></h3></span></a>
+    </div>
+    <a class="mais" href="https://tribuna98.com.br/" target="_blank" rel="noopener">Ver todas as notícias no site →</a>
+  </section>
+
+  <section class="sec sobe" style="animation-delay:.26s">
+    <div class="rot">Acompanhe</div>
+    <div class="lista">
+      <a class="lk" href="https://tribuna98.com.br/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd400" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span><span class="tx"><b>Site Tribuna 98</b><small>Matérias todo dia</small></span><span class="seta">→</span></a>
+      <a class="lk" href="https://www.youtube.com/@tribuna098" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="#ffd400"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg></span><span class="tx"><b>Entrevistas no YouTube</b><small>Conversas longas com candidatos e políticos</small></span><span class="seta">→</span></a>
+      <a class="lk" href="https://www.tiktok.com/@tribuna098" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="#ffd400"><path d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2-2.8V9a6.3 6.3 0 1 0 5.3 6.2V8.6a7.7 7.7 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.4z"/></svg></span><span class="tx"><b>TikTok</b><small>Bastidores da política em vídeo curto</small></span><span class="seta">→</span></a>
+      <a class="lk" href="https://www.instagram.com/tribuna98_/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd400" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#ffd400"/></svg></span><span class="tx"><b>Instagram</b><small>Notícia rápida nos stories</small></span><span class="seta">→</span></a>
+      <a class="lk" href="https://www.kwai.com/@Triibuna98" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd400" stroke-width="2"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="M16 10l6-3v10l-6-3z"/></svg></span><span class="tx"><b>Kwai</b><small>Os vídeos do Tribuna</small></span><span class="seta">→</span></a>
+    </div>
+  </section>
+
+  <section class="sec sobe" style="animation-delay:.32s">
+    <div class="anuncie">
+      <h2>Sua marca no<br><em>Tribuna 98</em></h2>
+      <p>Banner no site, post e stories para quem acompanha a política do Maranhão.</p>
+      <a href="https://wa.me/5598991056523?text=Ol%C3%A1%2C%20Thiago!%20Quero%20saber%20como%20anunciar%20no%20Tribuna%2098." target="_blank" rel="noopener">Quero anunciar →</a>
+    </div>
+  </section>
+
+  <footer>
+    <img src="img/logo.png" alt="Tribuna 98"><br>
+    Tribuna 98 · Thiago Azevedo<br>tribuna098@gmail.com
+  </footer>
+</div>
+<script>
+(function(){
+  var box=document.getElementById('news');
+  function limpa(h){var d=document.createElement('div');d.innerHTML=h;return d.textContent||'';}
+  function data(s){try{return new Date(s).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'}).replace('.','');}catch(e){return '';}}
+  fetch('https://tribuna98.com.br/wp-json/wp/v2/posts?per_page=3&_embed=wp:featuredmedia&_fields=title,link,date,_links,_embedded')
+  .then(function(r){return r.json();}).then(function(p){
+    if(!p||!p.length)return;
+    box.innerHTML=p.map(function(x){
+      var img='';try{var m=x._embedded['wp:featuredmedia'][0];img=(m.media_details.sizes.medium||m.media_details.sizes.thumbnail||{}).source_url||m.source_url;}catch(e){}
+      return '<a class="nt" href="'+x.link+'" target="_blank" rel="noopener"><span class="th" style="'+(img?'background-image:url('+img+');--o:0':'')+'"></span><span><span class="dt">'+data(x.date)+'</span><h3>'+limpa(x.title.rendered)+'</h3></span></a>';
+    }).join('');
+  }).catch(function(){
+    box.innerHTML='<a class="nt" href="https://tribuna98.com.br/" target="_blank" rel="noopener"><span class="th"></span><span><span class="dt">tribuna98.com.br</span><h3>Leia as últimas notícias no site do Tribuna 98</h3></span></a>';
+  });
+})();
+</script>
+</body>
+</html>

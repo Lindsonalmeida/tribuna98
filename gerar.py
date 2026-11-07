@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Gera o site principal do Tribuna 98 em /site/ (sem tocar na bio da raiz).
+# Gera o site principal do Tribuna 98 em / (sem tocar na bio da raiz).
 # Método do mini site da Desentupidora SF: páginas, meta tags, JSON-LD, sitemap.
 # Uso: python3 gerar.py   (na raiz do repositório)
 import os
@@ -101,11 +101,11 @@ FONTES = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
           '<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">')
 
 SECOES = [
-    ("/site/", "Início"),
-    ("/site/sobre/", "Sobre o Thiago"),
-    ("/site/editorias/", "Editorias"),
-    ("/site/anuncie/", "Anuncie"),
-    ("/site/contato/", "Contato"),
+    ("/", "Início"),
+    ("/sobre/", "Sobre o Thiago"),
+    ("/editorias/", "Editorias"),
+    ("/anuncie/", "Anuncie"),
+    ("/contato/", "Contato"),
 ]
 
 EDITORIAS = ["Política", "Prefeituras", "Licitações", "Eleições", "Deputados", "Bastidores"]
@@ -142,7 +142,7 @@ def topo(ativo):
     )
     return (
         '<header class="topo"><div class="wrap">'
-        '<a href="/site/" aria-label="Tribuna 98 · início"><img src="/img/logo.png" alt="Tribuna 98"></a>'
+        '<a href="/" aria-label="Tribuna 98 · início"><img src="/img/logo.png" alt="Tribuna 98"></a>'
         '<nav class="menu" aria-label="Principal">%s</nav>'
         '<a class="btn" href="%s" target="_blank" rel="noopener" style="padding:10px 16px;font-size:14px">WhatsApp</a>'
         '</div></header>'
@@ -151,7 +151,7 @@ def topo(ativo):
 
 def editorias_bar():
     return '<nav class="editorias" aria-label="Editorias"><div class="wrap">%s</div></nav>' % "".join(
-        '<a href="/site/editorias/#%s">%s</a>' % (e.lower(), e) for e in EDITORIAS
+        '<a href="/editorias/#%s">%s</a>' % (e.lower(), e) for e in EDITORIAS
     )
 
 
@@ -160,8 +160,8 @@ def rodape():
         '<footer class="rodape"><div class="wrap">'
         '<div><img src="/img/logo.png" alt="Tribuna 98" style="height:34px;width:auto;margin-bottom:14px">'
         '<p style="font-size:14px">Informação, política e bastidores do Maranhão. Fiscalização com fonte e documento público.</p></div>'
-        '<div><h4>Site</h4><a href="/site/">Início</a><a href="/site/sobre/">Sobre o Thiago</a>'
-        '<a href="/site/editorias/">Editorias</a><a href="/site/anuncie/">Anuncie</a><a href="/site/contato/">Contato</a></div>'
+        '<div><h4>Site</h4><a href="/">Início</a><a href="/sobre/">Sobre o Thiago</a>'
+        '<a href="/editorias/">Editorias</a><a href="/anuncie/">Anuncie</a><a href="/contato/">Contato</a></div>'
         '<div><h4>Canais</h4><a href="https://www.instagram.com/tribuna98_/" target="_blank" rel="noopener">Instagram</a>'
         '<a href="https://www.youtube.com/@tribuna098" target="_blank" rel="noopener">YouTube</a>'
         '<a href="https://www.tiktok.com/@tribuna098" target="_blank" rel="noopener">TikTok</a>'
@@ -197,21 +197,21 @@ NEWS_JS = """<script>
 def home():
     ld = (
         '<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite",'
-        '"name":"Tribuna 98","url":"%s/site/","inLanguage":"pt-BR"}</script>'
+        '"name":"Tribuna 98","url":"%s/","inLanguage":"pt-BR"}</script>'
     ) % BASE
     corpo = (
-        topo("/site/") + editorias_bar() +
+        topo("/") + editorias_bar() +
         '<section class="hero"><div class="wrap grid"><div>'
         '<span class="kicker">Informação · Política · Bastidores</span>'
         '<h1>Política e dinheiro público do Maranhão, com fonte.</h1>'
         '<p class="lead">O Tribuna 98 acompanha prefeituras, licitações, deputados e eleições. Cada informação tem fonte e documento público, e quem é citado tem direito de resposta.</p>'
         '<div class="acoes"><a class="btn sol" href="#ultimas">Ver as últimas</a>'
-        '<a class="btn" href="/site/anuncie/">Anuncie no Tribuna</a></div>'
+        '<a class="btn" href="/anuncie/">Anuncie no Tribuna</a></div>'
         '</div><aside class="destaque">'
         '<span class="kicker">Quem fala com você</span>'
         '<p class="tit" style="font-family:Anton,sans-serif;color:var(--branco);text-transform:uppercase;font-size:28px;line-height:1;margin:6px 0 12px">Thiago Azevedo</p>'
         '<p>Comunicador e dono do Tribuna 98. Entrevista, apresenta e assina as matérias.</p>'
-        '<p style="margin-top:14px"><a class="btn" href="/site/sobre/">Conhecer o Thiago</a></p>'
+        '<p style="margin-top:14px"><a class="btn" href="/sobre/">Conhecer o Thiago</a></p>'
         '</aside></div></section>'
         '<section class="bloco" id="ultimas"><div class="wrap">'
         '<span class="kicker">Do site</span><h2>Últimas do Tribuna</h2>'
@@ -234,19 +234,19 @@ def home():
         '</div></section>'
         '<section class="bloco" style="padding-top:0"><div class="wrap">'
         '<div class="faixa"><div><h2>Anuncie no Tribuna 98</h2><p>Quem lê são eleitores e cidadãos do Maranhão que acompanham a política da sua cidade.</p></div>'
-        '<a class="btn sol" href="/site/anuncie/">Ver o mídia kit</a></div></div></section>'
+        '<a class="btn sol" href="/anuncie/">Ver o mídia kit</a></div></div></section>'
         + rodape() + NEWS_JS + FIM
     )
     return cabeca(
         "Tribuna 98 · Thiago Azevedo | Política e dinheiro público do Maranhão",
         "Tribuna 98 com Thiago Azevedo: política, prefeituras, licitações e eleições do Maranhão, com fonte e documento público.",
-        "/site/", tipo="WebSite", extra_ld=ld,
+        "/", tipo="WebSite", extra_ld=ld,
     ) + corpo
 
 
 def sobre():
     corpo = (
-        topo("/site/sobre/") +
+        topo("/sobre/") +
         '<section class="pagina"><div class="wrap"><div class="cab">'
         '<span class="kicker">Sobre o Thiago</span>'
         '<h1>Thiago Azevedo</h1>'
@@ -273,7 +273,7 @@ def sobre():
     return cabeca(
         "Thiago Azevedo · Tribuna 98 | Quem faz o jornalismo político do Maranhão",
         "Quem é Thiago Azevedo, dono e apresentador do Tribuna 98: cobertura de prefeituras, licitações e eleições do Maranhão.",
-        "/site/sobre/", tipo="AboutPage",
+        "/sobre/", tipo="AboutPage",
     ) + corpo
 
 
@@ -291,7 +291,7 @@ def editorias():
         for i, n, d in itens
     )
     corpo = (
-        topo("/site/editorias/") +
+        topo("/editorias/") +
         '<section class="pagina"><div class="wrap"><div class="cab">'
         '<span class="kicker">Editorias</span><h1>O que cobrimos</h1>'
         '<p>Os temas do Tribuna 98, com o que cada um traz para quem mora no Maranhão.</p></div>'
@@ -304,13 +304,13 @@ def editorias():
     return cabeca(
         "Editorias · Tribuna 98 | Política, prefeituras, licitações e eleições",
         "Editorias do Tribuna 98: política, prefeituras, licitações, eleições, deputados e bastidores do Maranhão.",
-        "/site/editorias/", tipo="CollectionPage",
+        "/editorias/", tipo="CollectionPage",
     ) + corpo
 
 
 def anuncie():
     corpo = (
-        topo("/site/anuncie/") +
+        topo("/anuncie/") +
         '<section class="pagina"><div class="wrap"><div class="cab">'
         '<span class="kicker">Mídia kit</span><h1>Anuncie no Tribuna 98</h1>'
         '<p>Para quem quer falar com quem acompanha a política e as obras do Maranhão. Os valores e os formatos são passados em conversa, por WhatsApp.</p>'
@@ -341,13 +341,13 @@ def anuncie():
     return cabeca(
         "Anuncie no Tribuna 98 · Mídia kit | Maranhão",
         "Mídia kit do Tribuna 98: público de política e cidades do Maranhão, canais e regras para anunciar. Valores por WhatsApp.",
-        "/site/anuncie/", tipo="WebPage",
+        "/anuncie/", tipo="WebPage",
     ) + corpo
 
 
 def contato():
     corpo = (
-        topo("/site/contato/") +
+        topo("/contato/") +
         '<section class="pagina"><div class="wrap"><div class="cab">'
         '<span class="kicker">Contato</span><h1>Fale com a redação</h1>'
         '<p>Pauta, denúncia com documento, direito de resposta ou anúncio: a conversa começa pelo WhatsApp.</p>'
@@ -370,7 +370,7 @@ def contato():
     return cabeca(
         "Contato · Tribuna 98 | Pauta, anúncio e direito de resposta",
         "Fale com o Tribuna 98: mande pauta, peça o mídia kit ou exerça direito de resposta pelo WhatsApp.",
-        "/site/contato/", tipo="ContactPage",
+        "/contato/", tipo="ContactPage",
     ) + corpo
 
 
@@ -383,20 +383,20 @@ def sitemap(paths):
 def main():
     raiz = os.path.dirname(os.path.abspath(__file__))
     paginas = {
-        "site/index.html": home(),
-        "site/sobre/index.html": sobre(),
-        "site/editorias/index.html": editorias(),
-        "site/anuncie/index.html": anuncie(),
-        "site/contato/index.html": contato(),
+        "index.html": home(),
+        "sobre/index.html": sobre(),
+        "editorias/index.html": editorias(),
+        "anuncie/index.html": anuncie(),
+        "contato/index.html": contato(),
     }
     for caminho, html in paginas.items():
         destino = os.path.join(raiz, caminho)
         os.makedirs(os.path.dirname(destino), exist_ok=True)
         with open(destino, "w", encoding="utf-8") as f:
             f.write(html)
-    # sitemap: a bio da raiz continua; o site principal entra com as rotas /site/
+    # sitemap: a bio da raiz continua; o site principal entra com as rotas /
     with open(os.path.join(raiz, "sitemap.xml"), "w", encoding="utf-8") as f:
-        f.write(sitemap(["/", "/site/", "/site/sobre/", "/site/editorias/", "/site/anuncie/", "/site/contato/"]))
+        f.write(sitemap(["/", "/sobre/", "/editorias/", "/anuncie/", "/contato/", "/bio/"]))
     print("ok:", ", ".join(paginas))
 
 

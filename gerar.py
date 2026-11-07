@@ -9,7 +9,7 @@ WA_PUBLICO = "https://wa.me/5598991056523"  # já é público na bio; contatos n
 WA_ANUNCIO = WA_PUBLICO + "?text=Ol%C3%A1%2C%20Thiago!%20Quero%20saber%20como%20anunciar%20no%20Tribuna%2098."
 WA_PAUTA = WA_PUBLICO + "?text=Ol%C3%A1%2C%20Thiago!%20Vim%20pelo%20site%20e%20quero%20mandar%20uma%20pauta."
 
-CSS = """
+CSS_BASE = """
 :root{--azul:#0b3fd6;--royal:#0a2fa8;--noite:#061a5e;--fundo:#040f3a;--amarelo:#ffd400;--branco:#fff;--cinza:#b9c3e6;--linha:rgba(255,255,255,.14);--cartao:rgba(255,255,255,.06)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--fundo)}
@@ -96,6 +96,85 @@ ul.lista li::before{content:"";position:absolute;left:0;top:17px;width:9px;heigh
 }
 """
 
+CSS = CSS_BASE + """
+/* ===== camada tecnológica (v2) ===== */
+body{position:relative;overflow-x:hidden}
+.fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.fx .grade{position:absolute;inset:-40% -10% auto -10%;height:140%;background-image:linear-gradient(rgba(120,160,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,255,.10) 1px,transparent 1px);background-size:56px 56px;transform:perspective(900px) rotateX(58deg);transform-origin:50% 0;mask-image:linear-gradient(to bottom,#000 10%,transparent 70%);-webkit-mask-image:linear-gradient(to bottom,#000 10%,transparent 70%);animation:deslizar 22s linear infinite}
+.fx .brilho{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(60px);opacity:.5}
+.fx .b1{background:radial-gradient(circle,#2b6bff,transparent 60%);top:-20vmax;right:-20vmax;animation:flutuar 16s ease-in-out infinite}
+.fx .b2{background:radial-gradient(circle,#ffd40055,transparent 60%);bottom:-25vmax;left:-20vmax;animation:flutuar 20s ease-in-out infinite reverse}
+.fx .ruido{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.fx .varredura{position:absolute;left:0;right:0;height:120px;background:linear-gradient(to bottom,transparent,rgba(255,212,0,.07),transparent);animation:varrer 7s linear infinite}
+@keyframes deslizar{to{background-position:0 56px,56px 0}}
+@keyframes flutuar{50%{transform:translate(4vmax,3vmax) scale(1.08)}}
+@keyframes varrer{from{top:-130px}to{top:100%}}
+main,header,footer,section,nav{position:relative;z-index:1}
+header.topo{z-index:10}
+/* cabeçalho com status ao vivo */
+.status{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#cfe0ff;border:1px solid rgba(255,255,255,.18);padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.05);backdrop-filter:blur(6px)}
+.status i{width:8px;height:8px;border-radius:50%;background:#ff3b3b;box-shadow:0 0 0 0 rgba(255,59,59,.7);animation:pulso 1.8s infinite}
+@keyframes pulso{70%{box-shadow:0 0 0 10px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
+/* hero em camadas */
+.hero{padding:64px 0 56px;background:none;overflow:hidden}
+.hero .grid{grid-template-columns:1.1fr 1fr;align-items:center}
+.hero h1 .amarelo{color:var(--amarelo);display:inline-block;text-shadow:0 0 40px rgba(255,212,0,.35)}
+.palco{position:relative;min-height:440px}
+.radar{position:absolute;right:-6%;top:-4%;width:min(92%,460px);aspect-ratio:1;opacity:.9}
+.radar .anel{fill:none;stroke:rgba(140,180,255,.25);stroke-width:1}
+.radar .varre{transform-origin:50% 50%;animation:girar 5s linear infinite}
+.radar .ponto{fill:var(--amarelo);animation:piscar 2.4s ease-in-out infinite}
+@keyframes girar{to{transform:rotate(360deg)}}
+@keyframes piscar{50%{opacity:.25}}
+.cartao-vidro{position:absolute;background:rgba(10,30,110,.45);border:1px solid rgba(255,255,255,.16);border-radius:18px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);padding:18px 20px}
+.cartao-vidro.c1{left:0;top:58px;width:min(84%,380px);animation:flutuar2 9s ease-in-out infinite}
+.cartao-vidro.c2{right:0;bottom:12px;width:min(70%,300px);animation:flutuar2 11s ease-in-out infinite reverse}
+@keyframes flutuar2{50%{transform:translateY(-14px)}}
+.cartao-vidro .k{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo)}
+.cartao-vidro .t{font-family:Inter,sans-serif;font-weight:700;font-size:17px;line-height:1.3;margin-top:8px;color:var(--branco);text-transform:none}
+.onda{display:block;width:100%;height:56px;margin-top:10px}
+/* faixa de temas em movimento */
+.ticker{overflow:hidden;border-block:1px solid var(--linha);background:rgba(4,15,58,.7);backdrop-filter:blur(6px)}
+.ticker .trilho{display:flex;gap:44px;white-space:nowrap;padding:14px 0;width:max-content;animation:correr 36s linear infinite}
+.ticker span{font-family:Anton,sans-serif;font-size:22px;text-transform:uppercase;color:var(--branco);letter-spacing:.02em}
+.ticker span.x{color:var(--amarelo)}
+@keyframes correr{to{transform:translateX(-50%)}}
+/* pipeline de checagem */
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:30px;position:relative}
+.pipe::before{content:"";position:absolute;left:6%;right:6%;top:30px;height:2px;background:linear-gradient(90deg,transparent,var(--amarelo),transparent);background-size:200% 100%;animation:fluir 3.5s linear infinite}
+@keyframes fluir{from{background-position:200% 0}to{background-position:-200% 0}}
+.passo{padding:0 14px;text-align:left}
+.passo .no{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;background:var(--noite);border:1.5px solid var(--amarelo);box-shadow:0 0 30px rgba(255,212,0,.25);position:relative;z-index:1}
+.passo .no svg{width:28px;height:28px;stroke:var(--amarelo);fill:none;stroke-width:1.8}
+.passo h3{font-size:22px;margin:16px 0 8px}
+.passo p{font-size:14px}
+.passo .n{font-size:11px;color:#8fa6e8;font-weight:700;letter-spacing:.14em;margin-bottom:4px}
+/* vidro: cartões com borda em gradiente */
+.vidro{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border-radius:20px;padding:26px;border:1px solid transparent;background-clip:padding-box;transition:transform .35s ease,box-shadow .35s ease}
+.vidro::before{content:"";position:absolute;inset:-1px;border-radius:21px;padding:1px;background:linear-gradient(140deg,rgba(255,212,0,.65),rgba(80,130,255,.1) 40%,rgba(80,130,255,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.vidro:hover{transform:translateY(-6px);box-shadow:0 26px 50px -22px rgba(11,63,214,.8)}
+.painel-num{font-family:Anton,sans-serif;font-size:clamp(40px,5vw,64px);color:var(--amarelo);line-height:1;font-weight:400;font-variant-numeric:tabular-nums}
+.faixa-led{position:relative;overflow:hidden}
+.faixa-led::after{content:"";position:absolute;top:-50%;left:-40%;width:30%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:rotate(18deg);animation:brilhar 4.5s ease-in-out infinite}
+@keyframes brilhar{0%,60%{left:-40%}100%{left:120%}}
+/* entrada suave das camadas */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.rev.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
+@media (max-width:860px){
+  .hero .grid{grid-template-columns:1fr}
+  .palco{min-height:540px;margin-top:10px}
+  .pipe{grid-template-columns:1fr 1fr;row-gap:28px}
+  .pipe::before{display:none}
+  .passo{padding:0}
+  .cartao-vidro.c1{top:40px;width:86%}
+  .cartao-vidro.c2{width:70%;bottom:-6px;right:0}
+  .radar{width:100%;right:-4%;top:-12%}
+  .hero{overflow:hidden}
+  .palco{overflow:visible}
+}
+"""
+
 FONTES = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
           '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
           '<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">')
@@ -132,7 +211,7 @@ def cabeca(titulo, descricao, caminho, tipo="WebPage", extra_ld=""):
         '<meta property="og:description" content="%s"><meta property="og:url" content="%s">'
         '<meta property="og:image" content="%s/img/og.jpg"><meta property="og:locale" content="pt_BR">'
         '<link rel="icon" href="/img/avatar.webp">'
-        '%s<style>%s</style>%s%s</head><body>'
+        '%s<style>%s</style>%s%s</head><body>'+FX_OPEN
     ) % (titulo, descricao, url, titulo, descricao, url, BASE, FONTES, CSS, ld, extra_ld)
 
 
@@ -173,6 +252,7 @@ def rodape():
 
 
 FIM = '</body></html>'
+FX_OPEN = '<div class="fx" aria-hidden="true"><div class="grade"></div><div class="brilho b1"></div><div class="brilho b2"></div><div class="ruido"></div><div class="varredura"></div></div>'
 
 NEWS_JS = """<script>
 (function(){
@@ -199,43 +279,65 @@ def home():
         '<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite",'
         '"name":"Tribuna 98","url":"%s/","inLanguage":"pt-BR"}</script>'
     ) % BASE
+    onda = ('<svg class="onda" viewBox="0 0 400 56" preserveAspectRatio="none" aria-hidden="true">'
+            '<path d="M0 28 C40 6 80 50 120 28 S200 6 240 28 S320 50 360 28 S400 6 400 28" fill="none" stroke="#ffd400" stroke-width="2"/>'
+            '<path d="M0 36 C40 16 80 56 120 36 S200 16 240 36 S320 56 360 36 S400 16 400 36" fill="none" stroke="rgba(140,180,255,.6)" stroke-width="1.4"/></svg>')
+    radar = ('<svg class="radar" viewBox="0 0 400 400" aria-hidden="true">'
+             '<circle class="anel" cx="200" cy="200" r="190"/><circle class="anel" cx="200" cy="200" r="140"/>'
+             '<circle class="anel" cx="200" cy="200" r="90"/><circle class="anel" cx="200" cy="200" r="40"/>'
+             '<line x1="10" y1="200" x2="390" y2="200" stroke="rgba(140,180,255,.2)"/>'
+             '<line x1="200" y1="10" x2="200" y2="390" stroke="rgba(140,180,255,.2)"/>'
+             '<g class="varre"><path d="M200 200 L200 10 A190 190 0 0 1 320 52 Z" fill="rgba(255,212,0,.16)"/></g>'
+             '<circle class="ponto" cx="262" cy="130" r="5"/><circle class="ponto" cx="140" cy="236" r="4" style="animation-delay:-1s"/>'
+             '<circle class="ponto" cx="226" cy="282" r="5" style="animation-delay:-2s"/></svg>')
+    ticker = ''.join('<span>%s</span><span class="x">✦</span>' % t for t in
+                     ['Política','Prefeituras','Licitações','Eleições','Deputados','Bastidores','Fiscalização com fonte'])
     corpo = (
         topo("/") + editorias_bar() +
-        '<section class="hero"><div class="wrap grid"><div>'
-        '<span class="kicker">Informação · Política · Bastidores</span>'
-        '<h1>Política e dinheiro público do Maranhão, com fonte.</h1>'
+        '<section class="hero"><div class="wrap grid"><div class="rev">'
+        '<span class="status"><i></i>Ao vivo · Maranhão</span>'
+        '<h1 style="margin-top:20px">Política e <span class="amarelo">dinheiro público</span> do Maranhão, com fonte.</h1>'
         '<p class="lead">O Tribuna 98 acompanha prefeituras, licitações, deputados e eleições. Cada informação tem fonte e documento público, e quem é citado tem direito de resposta.</p>'
         '<div class="acoes"><a class="btn sol" href="#ultimas">Ver as últimas</a>'
         '<a class="btn" href="/anuncie/">Anuncie no Tribuna</a></div>'
-        '</div><aside class="destaque">'
-        '<span class="kicker">Quem fala com você</span>'
-        '<p class="tit" style="font-family:Anton,sans-serif;color:var(--branco);text-transform:uppercase;font-size:28px;line-height:1;margin:6px 0 12px">Thiago Azevedo</p>'
-        '<p>Comunicador e dono do Tribuna 98. Entrevista, apresenta e assina as matérias.</p>'
-        '<p style="margin-top:14px"><a class="btn" href="/sobre/">Conhecer o Thiago</a></p>'
-        '</aside></div></section>'
+        '</div>'
+        '<div class="palco rev" style="transition-delay:.15s">' + radar +
+        '<img src="/img/thiago-entrevista.webp" alt="Thiago Azevedo em entrevista, microfone à frente" '
+        'style="position:absolute;inset:0 0 auto 0;width:100%;height:auto;border-radius:22px;object-fit:cover;'
+        'filter:saturate(1.05) contrast(1.05);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);opacity:.92;'
+        'mask-image:linear-gradient(to bottom,#000 70%,transparent)" width="1280" height="761" fetchpriority="high">'
+        '<div class="cartao-vidro c1"><span class="k">Acompanhe</span><p class="t" style="margin:0">Prefeituras, licitações e o que o dinheiro público está pagando</p>' + onda + '</div>'
+        '<div class="cartao-vidro c2"><span class="k">Checagem</span><p class="t" style="margin:0">Fonte e documento antes da publicação</p></div>'
+        '</div></div></section>'
+        '<div class="ticker" aria-hidden="true"><div class="trilho">' + ticker + ticker + '</div></div>'
         '<section class="bloco" id="ultimas"><div class="wrap">'
-        '<span class="kicker">Do site</span><h2>Últimas do Tribuna</h2>'
-        '<div class="ultimas"><div class="lead-nt" id="lead-nt"><span class="dt">Carregando…</span></div>'
-        '<div id="lista-nt"></div></div></div></section>'
+        '<div class="rev"><span class="kicker">Do site · ao vivo</span><h2>Últimas do Tribuna</h2></div>'
+        '<div class="ultimas"><div class="lead-nt vidro faixa-led rev" id="lead-nt"><span class="dt">Carregando…</span></div>'
+        '<div id="lista-nt" class="rev"></div></div></div></section>'
         '<section class="bloco alt"><div class="wrap">'
-        '<span class="kicker">Como checamos</span><h2>Fiscalização com fonte</h2>'
-        '<div class="cartoes">'
-        '<div class="cartao"><h3>Fonte citada</h3><p>Toda acusação ou dado vem com a fonte: documento público, contrato, portal de compras ou órgão responsável.</p></div>'
-        '<div class="cartao"><h3>Direito de resposta</h3><p>Quem é citado pode responder. A resposta sai no mesmo espaço, sem corte.</p></div>'
-        '<div class="cartao"><h3>Opinião separada</h3><p>Opinião é assinada e aparece como opinião. Notícia não se mistura com análise.</p></div>'
+        '<div class="rev"><span class="kicker">Como checamos</span><h2>Do fato à publicação</h2></div>'
+        '<div class="pipe">'
+        '<div class="passo rev"><div class="n">01</div><div class="no"><svg viewBox="0 0 24 24"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6"/></svg></div><h3>Documento</h3><p>O contrato, a licitação ou a ata é encontrado e lido antes de qualquer texto.</p></div>'
+        '<div class="passo rev" style="transition-delay:.1s"><div class="n">02</div><div class="no"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div><h3>Fonte</h3><p>Toda acusação ou dado tem a origem citada: órgão, portal ou pessoa.</p></div>'
+        '<div class="passo rev" style="transition-delay:.2s"><div class="n">03</div><div class="no"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div><h3>Checagem</h3><p>Os fatos são conferidos de novo. Opinião é assinada e separada da notícia.</p></div>'
+        '<div class="passo rev" style="transition-delay:.3s"><div class="n">04</div><div class="no"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4z"/></svg></div><h3>Resposta</h3><p>Quem é citado pode responder, e a resposta sai no mesmo espaço, sem corte.</p></div>'
         '</div></div></section>'
         '<section class="bloco"><div class="wrap">'
-        '<span class="kicker">Em números</span><h2>Onde você nos encontra</h2>'
+        '<div class="rev"><span class="kicker">Em números</span><h2>Onde você nos encontra</h2></div>'
         '<div class="numeros">'
-        '<div class="num"><b>71,5 mil</b><span>seguidores no Instagram (@tribuna98_)</span></div>'
-        '<div class="num"><b>2.510</b><span>publicações no Instagram</span></div>'
-        '<div class="num"><b>30</b><span>entrevistas longas no YouTube</span></div>'
+        '<div class="num vidro rev"><b class="painel-num">71,5 mil</b><span>seguidores no Instagram (@tribuna98_)</span></div>'
+        '<div class="num vidro rev" style="transition-delay:.1s"><b class="painel-num">2.510</b><span>publicações no Instagram</span></div>'
+        '<div class="num vidro rev" style="transition-delay:.2s"><b class="painel-num">30</b><span>entrevistas longas no YouTube</span></div>'
         '</div><p class="nota">Números de 03/11/2026, a confirmar com o Insights antes de qualquer divulgação.</p>'
         '</div></section>'
         '<section class="bloco" style="padding-top:0"><div class="wrap">'
-        '<div class="faixa"><div><h2>Anuncie no Tribuna 98</h2><p>Quem lê são eleitores e cidadãos do Maranhão que acompanham a política da sua cidade.</p></div>'
+        '<div class="faixa faixa-led rev"><div><h2>Anuncie no Tribuna 98</h2><p>Quem lê são eleitores e cidadãos do Maranhão que acompanham a política da sua cidade.</p></div>'
         '<a class="btn sol" href="/anuncie/">Ver o mídia kit</a></div></div></section>'
-        + rodape() + NEWS_JS + FIM
+        + rodape() + NEWS_JS +
+        '<script>(function(){var els=document.querySelectorAll(".rev");if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("on")});return;}'
+        'var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target);}});},{threshold:.12});'
+        'els.forEach(function(e){io.observe(e);});})();</script>'
+        + FIM
     )
     return cabeca(
         "Tribuna 98 · Thiago Azevedo | Política e dinheiro público do Maranhão",
@@ -252,7 +354,7 @@ def sobre():
         '<h1>Thiago Azevedo</h1>'
         '<p>Comunicador e dono do Tribuna 98, um veículo de jornalismo político do Maranhão. Ele é o rosto da marca: grava, apresenta, entrevista e assina as matérias.</p>'
         '</div></div></section>'
-        '<section class="bloco"><div class="wrap ultimas">'
+        '<section class="bloco" style="padding-top:0"><div class="wrap ultimas" style="align-items:center">''<div class="rev"><img src="/img/thiago-sobre.webp" alt="Thiago Azevedo, retrato de corpo inteiro de terno azul" width="853" height="1280" style="border-radius:22px;width:100%%;max-width:440px;height:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)"></div>''<div class="rev">'
         '<div><h2>O que ele faz</h2><ul class="lista">'
         '<li>Cobre prefeituras do interior e os contratos e licitações delas</li>'
         '<li>Entrevista candidatos e deputados, em vídeos longos</li>'
@@ -287,7 +389,7 @@ def editorias():
         ("bastidores", "Bastidores", "O que acontece antes da notícia: reuniões, acordos e os nomes por trás das decisões."),
     ]
     cards = "".join(
-        '<div class="cartao" id="%s"><span class="kicker">Editoria</span><h3>%s</h3><p>%s</p></div>' % (i, n, d)
+        '<div class="cartao vidro" id="%s"><span class="kicker">Editoria</span><h3>%s</h3><p>%s</p>%s</div>' % (i, n, d, '<img src="/img/thiago-bastidores.webp" alt="Thiago Azevedo de costas, olhando pela janela" width="1200" height="675" style="border-radius:14px;margin-top:16px;width:100%%;height:auto">' if i == 'bastidores' else '')
         for i, n, d in itens
     )
     corpo = (

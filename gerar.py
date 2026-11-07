@@ -6,8 +6,8 @@ import os
 
 BASE = "https://tribuna98.pages.dev"
 WA_PUBLICO = "https://wa.me/5598991056523"  # já é público na bio; contatos novos ficam no privado
-WA_ANUNCIO = WA_PUBLICO + "?text=Ol%C3%A1%2C%20Thiago!%20Quero%20saber%20como%20anunciar%20no%20Tribuna%2098."
-WA_PAUTA = WA_PUBLICO + "?text=Ol%C3%A1%2C%20Thiago!%20Vim%20pelo%20site%20e%20quero%20mandar%20uma%20pauta."
+WA_ANUNCIO = WA_PUBLICO + "?text=Ol%C3%A1%2C%20Tiago!%20Quero%20saber%20como%20anunciar%20no%20Tribuna%2098."
+WA_PAUTA = WA_PUBLICO + "?text=Ol%C3%A1%2C%20Tiago!%20Vim%20pelo%20site%20e%20quero%20mandar%20uma%20pauta."
 
 CSS_BASE = """
 :root{--azul:#0b3fd6;--royal:#0a2fa8;--noite:#061a5e;--fundo:#040f3a;--amarelo:#ffd400;--branco:#fff;--cinza:#b9c3e6;--linha:rgba(255,255,255,.14);--cartao:rgba(255,255,255,.06)}
@@ -181,7 +181,7 @@ FONTES = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 
 SECOES = [
     ("/", "Início"),
-    ("/sobre/", "Sobre o Thiago"),
+    ("/sobre/", "Sobre o Tiago"),
     ("/editorias/", "Editorias"),
     ("/anuncie/", "Anuncie"),
     ("/contato/", "Contato"),
@@ -239,14 +239,14 @@ def rodape():
         '<footer class="rodape"><div class="wrap">'
         '<div><img src="/img/logo.png" alt="Tribuna 98" style="height:34px;width:auto;margin-bottom:14px">'
         '<p style="font-size:14px">Informação, política e bastidores do Maranhão. Fiscalização com fonte e documento público.</p></div>'
-        '<div><h4>Site</h4><a href="/">Início</a><a href="/sobre/">Sobre o Thiago</a>'
+        '<div><h4>Site</h4><a href="/">Início</a><a href="/sobre/">Sobre o Tiago</a>'
         '<a href="/editorias/">Editorias</a><a href="/anuncie/">Anuncie</a><a href="/contato/">Contato</a></div>'
         '<div><h4>Canais</h4><a href="https://www.instagram.com/tribuna98_/" target="_blank" rel="noopener">Instagram</a>'
         '<a href="https://www.youtube.com/@tribuna098" target="_blank" rel="noopener">YouTube</a>'
         '<a href="https://www.tiktok.com/@tribuna098" target="_blank" rel="noopener">TikTok</a>'
         '<a href="https://tribuna98.com.br/" target="_blank" rel="noopener">Blog (tribuna98.com.br)</a>'
         '<a href="/">Todos os canais (bio)</a></div>'
-        '<div style="grid-column:1/-1"><small>© 2026 Tribuna 98 · Thiago Azevedo. Opinião assinada é separada de notícia.</small></div>'
+        '<div style="grid-column:1/-1"><small>© 2026 Tribuna 98 · Tiago Azevedo. Opinião assinada é separada de notícia.</small></div>'
         '</div></footer>'
     )
 
@@ -302,7 +302,7 @@ def home():
         '<a class="btn" href="/anuncie/">Anuncie no Tribuna</a></div>'
         '</div>'
         '<div class="palco rev" style="transition-delay:.15s">' + radar +
-        '<img src="/img/thiago-entrevista.webp" alt="Thiago Azevedo em entrevista, microfone à frente" '
+        '<img src="/img/thiago-entrevista.webp" alt="Tiago Azevedo em entrevista, microfone à frente" '
         'style="position:absolute;inset:0 0 auto 0;width:100%;height:auto;border-radius:22px;object-fit:cover;'
         'filter:saturate(1.05) contrast(1.05);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);opacity:.92;'
         'mask-image:linear-gradient(to bottom,#000 70%,transparent)" width="1280" height="761" fetchpriority="high">'
@@ -340,8 +340,8 @@ def home():
         + FIM
     )
     return cabeca(
-        "Tribuna 98 · Thiago Azevedo | Política e dinheiro público do Maranhão",
-        "Tribuna 98 com Thiago Azevedo: política, prefeituras, licitações e eleições do Maranhão, com fonte e documento público.",
+        "Tribuna 98 · Tiago Azevedo | Política e dinheiro público do Maranhão",
+        "Tribuna 98 com Tiago Azevedo: política, prefeituras, licitações e eleições do Maranhão, com fonte e documento público.",
         "/", tipo="WebSite", extra_ld=ld,
     ) + corpo
 
@@ -350,11 +350,11 @@ def sobre():
     corpo = (
         topo("/sobre/") +
         '<section class="pagina"><div class="wrap"><div class="cab">'
-        '<span class="kicker">Sobre o Thiago</span>'
-        '<h1>Thiago Azevedo</h1>'
+        '<span class="kicker">Sobre o Tiago</span>'
+        '<h1>Tiago Azevedo</h1>'
         '<p>Comunicador e dono do Tribuna 98, um veículo de jornalismo político do Maranhão. Ele é o rosto da marca: grava, apresenta, entrevista e assina as matérias.</p>'
         '</div></div></section>'
-        '<section class="bloco" style="padding-top:0"><div class="wrap ultimas" style="align-items:center">''<div class="rev"><img src="/img/thiago-sobre.webp" alt="Thiago Azevedo, retrato de corpo inteiro de terno azul" width="853" height="1280" style="border-radius:22px;width:100%%;max-width:440px;height:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)"></div>''<div class="rev">'
+        '<section class="bloco" style="padding-top:0"><div class="wrap ultimas" style="align-items:center">''<div class="rev"><img src="/img/thiago-sobre.webp" alt="Tiago Azevedo, retrato de corpo inteiro de terno azul" width="853" height="1280" style="border-radius:22px;width:100%%;max-width:440px;height:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)"></div>''<div class="rev">'
         '<div><h2>O que ele faz</h2><ul class="lista">'
         '<li>Cobre prefeituras do interior e os contratos e licitações delas</li>'
         '<li>Entrevista candidatos e deputados, em vídeos longos</li>'
@@ -373,8 +373,8 @@ def sobre():
         rodape() + FIM
     )
     return cabeca(
-        "Thiago Azevedo · Tribuna 98 | Quem faz o jornalismo político do Maranhão",
-        "Quem é Thiago Azevedo, dono e apresentador do Tribuna 98: cobertura de prefeituras, licitações e eleições do Maranhão.",
+        "Tiago Azevedo · Tribuna 98 | Quem faz o jornalismo político do Maranhão",
+        "Quem é Tiago Azevedo, dono e apresentador do Tribuna 98: cobertura de prefeituras, licitações e eleições do Maranhão.",
         "/sobre/", tipo="AboutPage",
     ) + corpo
 
@@ -389,7 +389,7 @@ def editorias():
         ("bastidores", "Bastidores", "O que acontece antes da notícia: reuniões, acordos e os nomes por trás das decisões."),
     ]
     cards = "".join(
-        '<div class="cartao vidro" id="%s"><span class="kicker">Editoria</span><h3>%s</h3><p>%s</p>%s</div>' % (i, n, d, '<img src="/img/thiago-bastidores.webp" alt="Thiago Azevedo de costas, olhando pela janela" width="1200" height="675" style="border-radius:14px;margin-top:16px;width:100%%;height:auto">' if i == 'bastidores' else '')
+        '<div class="cartao vidro" id="%s"><span class="kicker">Editoria</span><h3>%s</h3><p>%s</p>%s</div>' % (i, n, d, '<img src="/img/thiago-bastidores.webp" alt="Tiago Azevedo de costas, olhando pela janela" width="1200" height="675" style="border-radius:14px;margin-top:16px;width:100%%;height:auto">' if i == 'bastidores' else '')
         for i, n, d in itens
     )
     corpo = (
@@ -461,7 +461,7 @@ def contato():
         '<p style="margin-top:14px"><a class="btn" href="%s" target="_blank" rel="noopener">Anunciar</a></p></div>'
         '<div class="cartao"><h3>Direito de resposta</h3><p>Se você foi citado, responda aqui e sua resposta sai no mesmo espaço.</p>'
         '<p style="margin-top:14px"><a class="btn" href="%s" target="_blank" rel="noopener">Responder</a></p></div>'
-        '</div></div></section>' % (WA_PAUTA, WA_ANUNCIO, WA_PUBLICO + "?text=Ol%C3%A1%2C%20Thiago!%20Quero%20exercer%20direito%20de%20resposta.") +
+        '</div></div></section>' % (WA_PAUTA, WA_ANUNCIO, WA_PUBLICO + "?text=Ol%C3%A1%2C%20Tiago!%20Quero%20exercer%20direito%20de%20resposta.") +
         '<section class="bloco alt"><div class="wrap"><span class="kicker">Redes</span><h2>Siga o Tribuna 98</h2>'
         '<p><a class="btn" href="https://www.instagram.com/tribuna98_/" target="_blank" rel="noopener">Instagram</a> '
         '<a class="btn" href="https://www.youtube.com/@tribuna098" target="_blank" rel="noopener">YouTube</a> '

@@ -157,6 +157,9 @@ header.topo{z-index:10}
 .faixa-led{position:relative;overflow:hidden}
 .faixa-led::after{content:"";position:absolute;top:-50%;left:-40%;width:30%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:rotate(18deg);animation:brilhar 4.5s ease-in-out infinite}
 @keyframes brilhar{0%,60%{left:-40%}100%{left:120%}}
+.foto-banda{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--linha);margin:0 0 34px;box-shadow:0 40px 80px -36px rgba(0,0,0,.75)}
+.foto-banda img{width:100%;height:auto;max-height:520px;object-fit:cover;display:block}
+.foto-banda .legenda{position:absolute;left:18px;bottom:16px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--amarelo);color:var(--noite);padding:7px 12px;border-radius:999px}
 /* entrada suave das camadas */
 .rev{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .rev.on{opacity:1;transform:none}
@@ -315,6 +318,7 @@ def home():
         '<div class="ultimas"><div class="lead-nt vidro faixa-led rev" id="lead-nt"><span class="dt">Carregando…</span></div>'
         '<div id="lista-nt" class="rev"></div></div></div></section>'
         '<section class="bloco alt"><div class="wrap">'
+        '<div class="foto-banda rev"><img src="/img/tiago-documento.webp" alt="Tiago Azevedo lendo documentos na mesa" width="1200" height="786" loading="lazy"><span class="legenda">Documento antes da manchete</span></div>'
         '<div class="rev"><span class="kicker">Como checamos</span><h2>Do fato à publicação</h2></div>'
         '<div class="pipe">'
         '<div class="passo rev"><div class="n">01</div><div class="no"><svg viewBox="0 0 24 24"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6"/></svg></div><h3>Documento</h3><p>O contrato, a licitação ou a ata é encontrado e lido antes de qualquer texto.</p></div>'
@@ -366,6 +370,10 @@ def sobre():
         '<li>Dá direito de resposta a quem for citado</li>'
         '<li>Em ano de eleição, segue a legislação eleitoral em conteúdo pago e impulsionado</li></ul></div>'
         '</div></section>'
+        '<section class="bloco"><div class="wrap">'
+        '<div class="foto-banda rev"><img src="/img/tiago-mesa.webp" alt="Tiago Azevedo com as mãos cruzadas sobre a mesa" width="1170" height="1130" loading="lazy"><span class="legenda">Quem fiscaliza precisa ouvir os dois lados</span></div>'
+        '<div class="foto-banda rev"><img src="/img/tiago-escritorio.webp" alt="Tiago Azevedo lendo em um escritório" width="1200" height="800" loading="lazy"><span class="legenda">Antes de publicar, a leitura</span></div>'
+        '</div></section>'
         '<section class="bloco alt"><div class="wrap"><span class="kicker">Fale com a redação</span>'
         '<h2>Mande uma pauta</h2><p>Tem uma licitação, uma obra parada ou um caso que precisa de checagem? Mande a pauta pelo WhatsApp.</p>'
         '<p style="margin-top:22px"><a class="btn sol" href="%s" target="_blank" rel="noopener">Mandar pauta</a></p>'
@@ -398,6 +406,7 @@ def editorias():
         '<span class="kicker">Editorias</span><h1>O que cobrimos</h1>'
         '<p>Os temas do Tribuna 98, com o que cada um traz para quem mora no Maranhão.</p></div>'
         '<div class="cartoes">%s</div></div></section>' % cards +
+        '<section class="bloco" style="padding-bottom:0"><div class="wrap"><div class="foto-banda rev"><img src="/img/tiago-politica.webp" alt="Tiago Azevedo em frente a uma mesa de trabalho" width="822" height="1280" loading="lazy" style="max-height:620px;object-position:50% 25%"><span class="legenda">Política, na mesa de quem apura</span></div></div></section>'
         '<section class="bloco alt"><div class="wrap"><span class="kicker">Mais recentes</span>'
         '<h2>Veja no site</h2><p><a class="btn sol" href="https://tribuna98.com.br/" target="_blank" rel="noopener">Abrir o tribuna98.com.br</a></p>'
         '</div></section>' +
@@ -417,6 +426,7 @@ def anuncie():
         '<span class="kicker">Mídia kit</span><h1>Anuncie no Tribuna 98</h1>'
         '<p>Para quem quer falar com quem acompanha a política e as obras do Maranhão. Os valores e os formatos são passados em conversa, por WhatsApp.</p>'
         '</div></div></section>'
+        '<section class="bloco" style="padding-bottom:0"><div class="wrap"><div class="foto-banda rev"><img src="/img/tiago-anuncio.webp" alt="Tiago Azevedo de terno vermelho, olhar firme" width="853" height="1280" loading="lazy" style="max-height:620px;object-position:50%% 20%%"><span class="legenda">Quem fala com quem acompanha</span></div></div></section>'
         '<section class="bloco"><div class="wrap"><span class="kicker">Quem lê</span><h2>Público</h2>'
         '<div class="cartoes">'
         '<div class="cartao"><h3>Eleitor</h3><p>Morador de São Luís e do interior que quer saber o que acontece na sua cidade.</p></div>'
@@ -462,6 +472,7 @@ def contato():
         '<div class="cartao"><h3>Direito de resposta</h3><p>Se você foi citado, responda aqui e sua resposta sai no mesmo espaço.</p>'
         '<p style="margin-top:14px"><a class="btn" href="%s" target="_blank" rel="noopener">Responder</a></p></div>'
         '</div></div></section>' % (WA_PAUTA, WA_ANUNCIO, WA_PUBLICO + "?text=Ol%C3%A1%2C%20Tiago!%20Quero%20exercer%20direito%20de%20resposta.") +
+        '<section class="bloco"><div class="wrap"><div class="foto-banda rev"><img src="/img/tiago-pauta.webp" alt="Tiago Azevedo olhando o celular, em um corredor" width="1200" height="675" loading="lazy"><span class="legenda">Mande a pauta pelo WhatsApp</span></div></div></section>'
         '<section class="bloco alt"><div class="wrap"><span class="kicker">Redes</span><h2>Siga o Tribuna 98</h2>'
         '<p><a class="btn" href="https://www.instagram.com/tribuna98_/" target="_blank" rel="noopener">Instagram</a> '
         '<a class="btn" href="https://www.youtube.com/@tribuna098" target="_blank" rel="noopener">YouTube</a> '
